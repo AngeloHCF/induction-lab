@@ -1,0 +1,68 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {JSDOM,VirtualConsole} from 'jsdom';
+
+const html=fs.readFileSync('dist/index.html','utf8');
+const script=fs.readFileSync('dist/app.js','utf8');
+const errors=[];
+function boot(saved) {
+  const vc=new VirtualConsole();
+  vc.on('jsdomError',e=>errors.push(e.message));
+  const dom=new JSDOM(html,{url:'https://test.local/',runScripts:'outside-only',virtualConsole:vc});
+  const w=dom.window;
+  w.document.fonts={ready:Promise.resolve()};
+  w.matchMedia=()=>({matches:true});
+  w.HTMLElement.prototype.scrollIntoView=function(){this.dataset.scrolled='true'};
+  if(saved!==undefined)w.localStorage.setItem('induction-atelier-progress-v1',saved);
+  w.eval(script);
+  return dom;
+}
+let dom=boot(), w=dom.window, d=w.document;
+const $=s=>d.querySelector(s);
+const count=s=>d.querySelectorAll(s).length;
+const change=(selector,value)=>{const el=$(selector);el.value=value;el.dispatchEvent(new w.Event(el.type==='search'?'input':'change',{bubbles:true}))};
+assert.equal(count('article.problem-card'),50);
+assert.equal(count('.solution[hidden]'),50);
+assert.equal(count('.stage'),200);
+assert.equal(count('.katex-error'),0);
+assert.equal(count('.katex'),329);
+assert.equal(count('[data-toggle][aria-expanded=false]'),50);
+for(let i=1;i<=50;i++) {
+  const b=$(`[data-toggle="${i}"]`),s=$(`#solution-${i}`);
+  b.click();assert.equal(s.hidden,false);assert.equal(b.getAttribute('aria-expanded'),'true');
+  assert.equal(b.textContent.trim(),'Hide Solution');
+  assert.deepEqual([...s.querySelectorAll('h3')].map(el=>el.textContent.replace(/^\d+/,'')),['Base Case','Inductive Hypothesis','Inductive Step','Conclusion']);
+  b.click();assert.equal(s.hidden,true);assert.equal(b.textContent.trim(),'Show Solution');
+}
+$('[data-toggle="1"]').click();$('[data-toggle="49"]').click();$('#hide-solutions').click();assert.equal(count('.solution[hidden]'),50);
+$('[data-complete="1"]').click();$('[data-complete="50"]').click();
+assert.equal($('#complete-count').textContent,'2');assert.equal($('#percent').textContent,'4%');
+assert.equal($('[role=progressbar]').getAttribute('aria-valuenow'),'2');
+assert.equal(count('.problem-index .done'),2);
+change('#status','complete');assert.equal(count('article:not([hidden])'),2);
+change('#status','incomplete');assert.equal(count('article:not([hidden])'),48);
+change('#status','');change('#difficulty','Expert');assert.equal(count('article:not([hidden])'),6);
+change('#topic','Fractions');assert.equal(count('article:not([hidden])'),1);
+change('#search','not a problem');assert.equal(count('article:not([hidden])'),0);assert.equal($('#empty-state').hidden,false);
+$('#clear-filters').click();assert.equal(count('article:not([hidden])'),50);
+$('#next-problem').click();assert.equal($('#problem-2').dataset.scrolled,'true');assert.equal($('#solution-2').hidden,true);
+change('#difficulty','Foundation');$('[data-jump="49"]').click();assert.equal($('#problem-49').hidden,false);assert.equal($('#solution-49').hidden,true);
+const saved=w.localStorage.getItem('induction-atelier-progress-v1');
+await w.document.fonts.ready;
+dom.window.close();dom=boot(saved);w=dom.window;d=w.document;
+assert.equal($('#complete-count').textContent,'2');assert.equal(count('.solution[hidden]'),50);
+$('#reset-progress').click();assert.equal($('#reset-confirm').hidden,false);
+$('#cancel-reset').click();assert.equal($('#complete-count').textContent,'2');assert.equal($('#reset-confirm').hidden,true);
+$('#reset-progress').click();$('#confirm-reset').click();assert.equal($('#complete-count').textContent,'0');
+for(const checkbox of d.querySelectorAll('[data-complete]'))checkbox.click();
+assert.equal($('#complete-count').textContent,'50');assert.equal($('#percent').textContent,'100%');assert.equal($('#next-problem').disabled,true);
+await w.document.fonts.ready;
+dom.window.close();dom=boot('{malformed');w=dom.window;d=w.document;
+assert.equal(count('.solution[hidden]'),50);assert.equal($('#complete-count').textContent,'0');
+$('[data-complete="1"]').click();assert.equal($('#complete-count').textContent,'1');
+assert.equal(errors.length,0,errors.join('\n'));
+await w.document.fonts.ready;
+dom.window.close();
+const report={status:'passed',cards:50,math_expressions:329,toggle_round_trips:50,proof_stages:200,checks:['hidden by default','all toggle buttons','hide all','completion tracker','save and reload','no saved solution visibility','combined filters','empty-state recovery','jump navigation','next incomplete','reset and cancel','100 percent completion','malformed storage recovery'],limitation:'DOM integration verified with jsdom. No live browser was available; viewport layout and real browser interaction are not browser-tested.'};
+fs.mkdirSync('../verification',{recursive:true});fs.writeFileSync('../verification/ui-report.json',JSON.stringify(report,null,2));
+console.log(JSON.stringify(report,null,2));

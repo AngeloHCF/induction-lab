@@ -1,0 +1,1352 @@
+[
+  {
+    "id": 1,
+    "title": "A square of a sum",
+    "topic": "Summations",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}j^3=\\left(\\frac{n(n+1)}2\\right)^2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "1^3=1=\\left(\\frac{1\\cdot2}{2}\\right)^2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad \\sum_{j=1}^{k}j^3=\\frac{k^2(k+1)^2}{4}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}j^3&=\\sum_{j=1}^{k}j^3+(k+1)^3\\\\\n&=\\frac{k^2(k+1)^2}{4}+(k+1)^3\\\\\n&=\\frac{(k+1)^2[k^2+4(k+1)]}{4}\\\\\n&=\\frac{(k+1)^2(k^2+4k+4)}4\n=\\left(\\frac{(k+1)(k+2)}2\\right)^2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Powers with a weight",
+    "topic": "Exponents",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}j2^j=(n-1)2^{n+1}+2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "1\\cdot2^1=2=(1-1)2^2+2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}j2^j=(k-1)2^{k+1}+2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}j2^j&=(k-1)2^{k+1}+2+(k+1)2^{k+1}\\\\\n&=[(k-1)+(k+1)]2^{k+1}+2\\\\\n&=2k\\,2^{k+1}+2=k2^{k+2}+2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Alternating squares",
+    "topic": "Summations",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}(-1)^{j-1}j^2=(-1)^{n-1}\\frac{n(n+1)}2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "(-1)^0\\cdot1^2=1=(-1)^0\\frac{1\\cdot2}{2}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}(-1)^{j-1}j^2=(-1)^{k-1}\\frac{k(k+1)}2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}(-1)^{j-1}j^2\n&=(-1)^{k-1}\\frac{k(k+1)}2+(-1)^k(k+1)^2\\\\\n&=(-1)^k\\left[(k+1)^2-\\frac{k(k+1)}2\\right]\\\\\n&=(-1)^k\\frac{(k+1)(2k+2-k)}2\\\\\n&=(-1)^k\\frac{(k+1)(k+2)}2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "A factorial sum",
+    "topic": "Factorials",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}j\\,j!=(n+1)!-1",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "1\\cdot1!=1=2!-1"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}j\\,j!=(k+1)!-1"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}j\\,j!&=(k+1)!-1+(k+1)(k+1)!\\\\\n&=[1+(k+1)](k+1)!-1\\\\\n&=(k+2)(k+1)!-1=(k+2)!-1.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "A hidden factorial boundary",
+    "topic": "Factorials",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "\\sum_{j=0}^{n}(j^2+j+1)j!=(n+1)(n+1)!",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "(0^2+0+1)0!=1=1\\cdot1!"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad\\sum_{j=0}^{k}(j^2+j+1)j!=(k+1)(k+1)!"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=0}^{k+1}(j^2+j+1)j!\n&=(k+1)(k+1)!+[(k+1)^2+(k+1)+1](k+1)!\\\\\n&=[k+1+k^2+2k+1+k+1+1](k+1)!\\\\\n&=(k^2+4k+4)(k+1)!\\\\\n&=(k+2)^2(k+1)!=(k+2)(k+2)!.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Three consecutive factors",
+    "topic": "Fractions",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}\\frac1{j(j+1)(j+2)}=\\frac{n(n+3)}{4(n+1)(n+2)}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\frac1{1\\cdot2\\cdot3}=\\frac16=\\frac{1\\cdot4}{4\\cdot2\\cdot3}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}\\frac1{j(j+1)(j+2)}=\\frac{k(k+3)}{4(k+1)(k+2)}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}\\frac1{j(j+1)(j+2)}\n&=\\frac{k(k+3)}{4(k+1)(k+2)}+\\frac1{(k+1)(k+2)(k+3)}\\\\\n&=\\frac{k(k+3)^2+4}{4(k+1)(k+2)(k+3)}\\\\\n&=\\frac{k^3+6k^2+9k+4}{4(k+1)(k+2)(k+3)}\\\\\n&=\\frac{(k+1)^2(k+4)}{4(k+1)(k+2)(k+3)}\\\\\n&=\\frac{(k+1)(k+4)}{4(k+2)(k+3)}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "A squared denominator",
+    "topic": "Fractions",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}\\frac{2j+1}{j^2(j+1)^2}=1-\\frac1{(n+1)^2}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\frac{3}{1^2\\cdot2^2}=\\frac34=1-\\frac1{2^2}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}\\frac{2j+1}{j^2(j+1)^2}=1-\\frac1{(k+1)^2}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}\\frac{2j+1}{j^2(j+1)^2}\n&=1-\\frac1{(k+1)^2}+\\frac{2k+3}{(k+1)^2(k+2)^2}\\\\\n&=1+\\frac{-(k+2)^2+2k+3}{(k+1)^2(k+2)^2}\\\\\n&=1-\\frac{k^2+2k+1}{(k+1)^2(k+2)^2}\\\\\n&=1-\\frac1{(k+2)^2}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Reciprocal factorials",
+    "topic": "Factorials",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\sum_{j=1}^{n}\\frac{j}{(j+1)!}=1-\\frac1{(n+1)!}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\frac1{2!}=\\frac12=1-\\frac1{2!}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}\\frac{j}{(j+1)!}=1-\\frac1{(k+1)!}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}\\frac{j}{(j+1)!}\n&=1-\\frac1{(k+1)!}+\\frac{k+1}{(k+2)!}\\\\\n&=1+\\frac{-(k+2)+(k+1)}{(k+2)!}\\\\\n&=1-\\frac1{(k+2)!}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "A product with missing squares",
+    "topic": "Products",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge2",
+    "setup": "",
+    "statement": "\\prod_{j=2}^{n}\\left(1-\\frac1{j^2}\\right)=\\frac{n+1}{2n}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "1-\\frac1{2^2}=\\frac34=\\frac{2+1}{2\\cdot2}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge2,\\qquad\\prod_{j=2}^{k}\\left(1-\\frac1{j^2}\\right)=\\frac{k+1}{2k}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\prod_{j=2}^{k+1}\\left(1-\\frac1{j^2}\\right)\n&=\\frac{k+1}{2k}\\left(1-\\frac1{(k+1)^2}\\right)\\\\\n&=\\frac{k+1}{2k}\\frac{(k+1)^2-1}{(k+1)^2}\\\\\n&=\\frac{k+1}{2k}\\frac{k(k+2)}{(k+1)^2}\\\\\n&=\\frac{k+2}{2(k+1)}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(2)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 2:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 2:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "A disguised product",
+    "topic": "Products",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "\\prod_{j=1}^{n}\\left(1+\\frac1{j(j+2)}\\right)=\\frac{2(n+1)}{n+2}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "1+\\frac1{1\\cdot3}=\\frac43=\\frac{2(1+1)}{1+2}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\prod_{j=1}^{k}\\left(1+\\frac1{j(j+2)}\\right)=\\frac{2(k+1)}{k+2}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\prod_{j=1}^{k+1}\\left(1+\\frac1{j(j+2)}\\right)\n&=\\frac{2(k+1)}{k+2}\\left(1+\\frac1{(k+1)(k+3)}\\right)\\\\\n&=\\frac{2(k+1)}{k+2}\\frac{(k+1)(k+3)+1}{(k+1)(k+3)}\\\\\n&=\\frac{2(k+1)}{k+2}\\frac{k^2+4k+4}{(k+1)(k+3)}\\\\\n&=\\frac{2(k+2)}{k+3}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Repeated half angles",
+    "topic": "Products",
+    "difficulty": "Advanced",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad 0<x<\\pi",
+    "setup": "",
+    "statement": "\\prod_{j=1}^{n}\\cos\\left(\\frac{x}{2^j}\\right)=\\frac{\\sin x}{2^n\\sin(x/2^n)}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\frac{\\sin x}{2\\sin(x/2)}=\\frac{2\\sin(x/2)\\cos(x/2)}{2\\sin(x/2)}=\\cos(x/2)"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\prod_{j=1}^{k}\\cos(x/2^j)=\\frac{\\sin x}{2^k\\sin(x/2^k)}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n0&<\\frac{x}{2^{k+1}}<\\frac\\pi2,\\qquad\n\\sin(x/2^{k+1})>0,\\quad\\cos(x/2^{k+1})>0,\\\\\n\\prod_{j=1}^{k+1}\\cos(x/2^j)\n&=\\frac{\\sin x\\cos(x/2^{k+1})}{2^k\\sin(x/2^k)}\\\\\n&=\\frac{\\sin x\\cos(x/2^{k+1})}{2^k\\cdot2\\sin(x/2^{k+1})\\cos(x/2^{k+1})}\\\\\n&=\\frac{\\sin x}{2^{k+1}\\sin(x/2^{k+1})}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Binary factorization",
+    "topic": "Exponents",
+    "difficulty": "Intermediate",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad x\\in\\mathbb R",
+    "setup": "",
+    "statement": "(1-x)\\prod_{j=0}^{n-1}(1+x^{2^j})=1-x^{2^n}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "(1-x)(1+x) =1-x^2=1-x^{2^1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad(1-x)\\prod_{j=0}^{k-1}(1+x^{2^j})=1-x^{2^k}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n(1-x)\\prod_{j=0}^{k}(1+x^{2^j})\n&=(1-x^{2^k})(1+x^{2^k})\\\\\n&=1-(x^{2^k})^2\\\\\n&=1-x^{2\\cdot2^k}=1-x^{2^{k+1}}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Two exponential residues",
+    "topic": "Divisibility",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "7\\mid 3^{2n+1}+2^{n+2}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "3^{1}+2^{2}=7=7\\cdot1"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad3^{2k+1}+2^{k+2}=7q,\\quad q\\in\\mathbb Z"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n3^{2(k+1)+1}+2^{(k+1)+2}\n&=9\\cdot3^{2k+1}+2\\cdot2^{k+2}\\\\\n&=9(3^{2k+1}+2^{k+2})-7\\cdot2^{k+2}\\\\\n&=63q-7\\cdot2^{k+2}\\\\\n&=7(9q-2^{k+2})\\in7\\mathbb Z.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Beyond the last digit",
+    "topic": "Divisibility",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "81\\mid10^n-1-9n",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "10^0-1-9\\cdot0=0=81\\cdot0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad10^k-1-9k=81q,\\quad q\\in\\mathbb Z"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n10^{k+1}-1-9(k+1)\n&=10\\cdot10^k-10-9k\\\\\n&=10(10^k-1-9k)+81k\\\\\n&=810q+81k=81(10q+k)\\in81\\mathbb Z.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "A linear correction",
+    "topic": "Divisibility",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "16\\mid5^{2n}-8n-1",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "5^0-8\\cdot0-1=0=16\\cdot0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad5^{2k}-8k-1=16q,\\quad q\\in\\mathbb Z"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n5^{2(k+1)}-8(k+1)-1\n&=25\\cdot5^{2k}-8k-9\\\\\n&=25(5^{2k}-8k-1)+192k+16\\\\\n&=400q+192k+16\\\\\n&=16(25q+12k+1)\\in16\\mathbb Z.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "A fifth-power congruence",
+    "topic": "Divisibility",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "30\\mid n^5-n",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "0^5-0=0=30\\cdot0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad k^5-k=30q,\\quad q\\in\\mathbb Z"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nk(k+1)&\\equiv0\\pmod2,\\\\\nk&\\equiv0,2\\pmod3\\ \\Longrightarrow\\ k(k+1)\\equiv0\\pmod3,\\\\\nk&\\equiv1\\pmod3\\ \\Longrightarrow\\ k^2+k+1\\equiv1+1+1\\equiv0\\pmod3,\\\\\nk(k+1)(k^2+k+1)&=6r,\\qquad r\\in\\mathbb Z,\\\\\n(k+1)^5-(k+1)\n&=k^5+5k^4+10k^3+10k^2+5k+1-k-1\\\\\n&=(k^5-k)+5k(k^3+2k^2+2k+1)\\\\\n&=30q+5k(k+1)(k^2+k+1)\\\\\n&=30q+30r=30(q+r)\\in30\\mathbb Z.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "The exact power of two",
+    "topic": "Divisibility",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "\\frac{5^{2^n}-1}{2^{n+2}}\\in2\\mathbb Z+1",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\frac{5^{2^0}-1}{2^{0+2}}=\\frac44=1\\in2\\mathbb Z+1"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad5^{2^k}=1+2^{k+2}q,\\quad q\\in2\\mathbb Z+1"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n5^{2^{k+1}}-1\n&=(5^{2^k})^2-1=(1+2^{k+2}q)^2-1\\\\\n&=2^{k+3}q+2^{2k+4}q^2\\\\\n&=2^{k+3}q(1+2^{k+1}q),\\\\\n\\frac{5^{2^{k+1}}-1}{2^{(k+1)+2}}\n&=q(1+2^{k+1}q)\\equiv1(1+0)\\equiv1\\pmod2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Consecutive coprime terms",
+    "topic": "Recurrences",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0)",
+    "statement": "\\gcd(F_n,F_{n+1})=1",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\gcd(F_0,F_1)=\\gcd(0,1)=1"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad\\gcd(F_k,F_{k+1})=1"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\gcd(F_{k+1},F_{k+2})\n&=\\gcd(F_{k+1},F_{k+1}+F_k)\\\\\n&=\\gcd(F_{k+1},F_k)\\\\\n&=\\gcd(F_k,F_{k+1})=1.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "When the exponential wins",
+    "topic": "Inequalities",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge4",
+    "setup": "",
+    "statement": "2^n\\ge n^2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "2^4=16=4^2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge4,\\qquad2^k\\ge k^2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n2k^2-(k+1)^2&=k^2-2k-1=(k-1)^2-2\\ge9-2=7>0,\\\\\n2^{k+1}&=2\\cdot2^k\\ge2k^2\\ge(k+1)^2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(4)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 4:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 4:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Factorial versus powers",
+    "topic": "Inequalities",
+    "difficulty": "Foundation",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "",
+    "statement": "n!\\ge2^{n-1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "1!=1=2^0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad k!\\ge2^{k-1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nk+1&\\ge2,\\\\\n(k+1)!&=(k+1)k!\\ge(k+1)2^{k-1}\\\\\n&\\ge2\\cdot2^{k-1}=2^k.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "A quadratic Bernoulli bound",
+    "topic": "Inequalities",
+    "difficulty": "Intermediate",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad x\\ge0",
+    "setup": "",
+    "statement": "(1+x)^n\\ge1+nx+\\frac{n(n-1)}2x^2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "(1+x)^1=1+x=1+1\\cdot x+\\frac{1\\cdot0}{2}x^2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\quad x\\ge0,\\qquad(1+x)^k\\ge1+kx+\\frac{k(k-1)}2x^2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n(1+x)^{k+1}\n&\\ge(1+x)\\left(1+kx+\\frac{k(k-1)}2x^2\\right)\\\\\n&=1+(k+1)x+\\left(k+\\frac{k(k-1)}2\\right)x^2+\\frac{k(k-1)}2x^3\\\\\n&=1+(k+1)x+\\frac{k(k+1)}2x^2+\\frac{k(k-1)}2x^3\\\\\n&\\ge1+(k+1)x+\\frac{(k+1)k}{2}x^2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Dyadic harmonic blocks",
+    "topic": "Inequalities",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "H_0=0,\\qquad H_m=\\sum_{j=1}^{m}\\frac1j\\quad(m\\ge1)",
+    "statement": "H_{2^n}\\ge1+\\frac n2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "H_{2^0}=H_1=1=1+\\frac02"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad H_{2^k}\\ge1+\\frac k2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n2^k+1\\le j\\le2^{k+1}&\\ \\Longrightarrow\\ \\frac1j\\ge\\frac1{2^{k+1}},\\\\\nH_{2^{k+1}}&=H_{2^k}+\\sum_{j=2^k+1}^{2^{k+1}}\\frac1j\\\\\n&\\ge1+\\frac k2+\\frac{2^{k+1}-2^k}{2^{k+1}}\\\\\n&=1+\\frac k2+\\frac12=1+\\frac{k+1}2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "A central binomial lower bound",
+    "topic": "Inequalities",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "",
+    "statement": "\\binom{2n}{n}\\ge\\frac{4^n}{2n+1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\binom00=1=\\frac{4^0}{1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad\\binom{2k}{k}\\ge\\frac{4^k}{2k+1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\binom{2k+2}{k+1}\n&=\\frac{(2k+2)(2k+1)}{(k+1)^2}\\binom{2k}{k}\\\\\n&=\\frac{2(2k+1)}{k+1}\\binom{2k}{k}\\\\\n&\\ge\\frac{2(2k+1)}{k+1}\\frac{4^k}{2k+1}\n=\\frac{2\\cdot4^k}{k+1},\\\\\n\\frac{2\\cdot4^k}{k+1}-\\frac{4^{k+1}}{2k+3}\n&=4^k\\frac{2(2k+3)-4(k+1)}{(k+1)(2k+3)}\\\\\n&=\\frac{2\\cdot4^k}{(k+1)(2k+3)}>0.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "A delicate product bound",
+    "topic": "Inequalities",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "W_0=1,\\qquad W_n=\\prod_{j=1}^{n}\\frac{2j-1}{2j}\\quad(n\\ge1)",
+    "statement": "0<W_n\\le\\frac1{\\sqrt{3n+1}}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "0<W_0=1=\\frac1{\\sqrt1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad0<W_k\\le(3k+1)^{-1/2}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n0<W_{k+1}&=W_k\\frac{2k+1}{2k+2},\\\\\n(2k+2)^2(3k+1)&=12k^3+28k^2+20k+4,\\\\\n(2k+1)^2(3k+4)&=12k^3+28k^2+19k+4,\\\\\n(2k+2)^2(3k+1)&-(2k+1)^2(3k+4)=k\\ge0,\\\\\nW_{k+1}^2&\\le\\frac{(2k+1)^2}{(2k+2)^2(3k+1)}\\le\\frac1{3k+4},\\\\\n0<W_{k+1}&\\le\\frac1{\\sqrt{3(k+1)+1}}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "title": "A nonlinear sequence between barriers",
+    "topic": "Inequalities",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "a_1=1,\\quad a_{r+1}=a_r+\\frac1{a_r}\\ (r\\ge1),\\quad H_0=0,\\quad H_m=\\sum_{j=1}^{m}\\frac1j",
+    "statement": "a_n>0,\\qquad 2n-1\\le a_n^2\\le2n-1+H_{n-1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "a_1=1>0,\\qquad2\\cdot1-1=1=a_1^2=2\\cdot1-1+H_0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad a_k>0,\\qquad2k-1\\le a_k^2\\le2k-1+H_{k-1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\na_{k+1}&=a_k+a_k^{-1}>0,\\\\\na_{k+1}^2&=(a_k+a_k^{-1})^2=a_k^2+2+a_k^{-2},\\\\\na_{k+1}^2&\\ge(2k-1)+2=2(k+1)-1,\\\\\n0<a_k^{-2}&\\le\\frac1{2k-1}\\le\\frac1k,\\\\\na_{k+1}^2&\\le2k-1+H_{k-1}+2+\\frac1k\\\\\n&=2(k+1)-1+H_k.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "An alternating determinant",
+    "topic": "Recurrences",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0)",
+    "statement": "F_{n+1}F_{n-1}-F_n^2=(-1)^n",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "F_2F_0-F_1^2=1\\cdot0-1^2=-1=(-1)^1"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad F_{k+1}F_{k-1}-F_k^2=(-1)^k"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nF_{k+2}F_k-F_{k+1}^2\n&=(F_{k+1}+F_k)F_k-F_{k+1}^2\\\\\n&=F_k^2-F_{k+1}(F_{k+1}-F_k)\\\\\n&=F_k^2-F_{k+1}F_{k-1}\\\\\n&=-(-1)^k=(-1)^{k+1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Squares of recurrence terms",
+    "topic": "Summations",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0)",
+    "statement": "\\sum_{j=1}^{n}F_j^2=F_nF_{n+1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "F_1^2=1=F_1F_2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad\\sum_{j=1}^{k}F_j^2=F_kF_{k+1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=1}^{k+1}F_j^2&=F_kF_{k+1}+F_{k+1}^2\\\\\n&=F_{k+1}(F_k+F_{k+1})\\\\\n&=F_{k+1}F_{k+2}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "A coupled doubling law",
+    "topic": "Recurrences",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0)",
+    "statement": "\\begin{cases}F_{2n}=F_n(2F_{n+1}-F_n),\\\\F_{2n+1}=F_n^2+F_{n+1}^2.\\end{cases}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "F_0=0=0(2\\cdot1-0),\\qquad F_1=1=0^2+1^2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\quad a=F_k,\\ b=F_{k+1},\\qquad F_{2k}=a(2b-a),\\quad F_{2k+1}=a^2+b^2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nF_{k+2}&=a+b,\\\\\nF_{2k+2}&=F_{2k+1}+F_{2k}\\\\\n&=a^2+b^2+2ab-a^2=b(2a+b)\\\\\n&=b[2(a+b)-b]=F_{k+1}(2F_{k+2}-F_{k+1}),\\\\\nF_{2k+3}&=F_{2k+2}+F_{2k+1}\\\\\n&=2ab+b^2+a^2+b^2\\\\\n&=b^2+(a+b)^2=F_{k+1}^2+F_{k+2}^2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "A Pell-type invariant",
+    "topic": "Recurrences",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "a_0=1,\\ b_0=0,\\qquad a_{r+1}=3a_r+4b_r,\\quad b_{r+1}=2a_r+3b_r\\quad(r\\ge0)",
+    "statement": "a_n^2-2b_n^2=1,\\qquad a_n\\ge1,\\quad b_n\\ge0",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "a_0^2-2b_0^2=1^2-2\\cdot0^2=1,\\qquad a_0=1,\\quad b_0=0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad a_k^2-2b_k^2=1,\\quad a_k\\ge1,\\quad b_k\\ge0"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\na_{k+1}&=3a_k+4b_k\\ge3\\ge1,\\\\\nb_{k+1}&=2a_k+3b_k\\ge2\\ge0,\\\\\na_{k+1}^2-2b_{k+1}^2\n&=(3a_k+4b_k)^2-2(2a_k+3b_k)^2\\\\\n&=9a_k^2+24a_kb_k+16b_k^2\\\\\n&\\quad-8a_k^2-24a_kb_k-18b_k^2\\\\\n&=a_k^2-2b_k^2=1.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "A reciprocal recurrence sum",
+    "topic": "Fractions",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0)",
+    "statement": "\\sum_{j=1}^{n}\\frac{(-1)^{j-1}}{F_jF_{j+1}}=\\frac{F_n}{F_{n+1}}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\begin{aligned}\nS_n&=\\sum_{j=1}^{n}\\frac{(-1)^{j-1}}{F_jF_{j+1}},\\\\\nQ(n)&:\\quad F_n,F_{n+1}>0,\\quad S_n=\\frac{F_n}{F_{n+1}},\\quad F_{n+1}^2-F_nF_{n+2}=(-1)^n,\\\\\nF_1&=F_2=1>0,\\qquad S_1=\\frac1{1\\cdot1}=1=\\frac{F_1}{F_2},\\\\\nF_2^2-F_1F_3&=1-2=-1=(-1)^1.\n\\end{aligned}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\quad Q(k):\\quad F_k,F_{k+1}>0,\\quad S_k=\\frac{F_k}{F_{k+1}},\\quad F_{k+1}^2-F_kF_{k+2}=(-1)^k"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nF_{k+2}&=F_k+F_{k+1}>0,\\\\\nS_{k+1}&=\\frac{F_k}{F_{k+1}}+\\frac{(-1)^k}{F_{k+1}F_{k+2}}\\\\\n&=\\frac{F_kF_{k+2}+(-1)^k}{F_{k+1}F_{k+2}}\\\\\n&=\\frac{F_{k+1}^2}{F_{k+1}F_{k+2}}=\\frac{F_{k+1}}{F_{k+2}},\\\\\nF_{k+2}^2-F_{k+1}F_{k+3}\n&=F_{k+2}^2-F_{k+1}(F_{k+2}+F_{k+1})\\\\\n&=F_{k+2}(F_{k+2}-F_{k+1})-F_{k+1}^2\\\\\n&=F_kF_{k+2}-F_{k+1}^2\\\\\n&=-(-1)^k=(-1)^{k+1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{Q(1)\\quad\\forall k\\ge1:\\ Q(k)\\Rightarrow Q(k+1)}{\\forall n\\ge1:\\ Q(n)}\\quad\\Longrightarrow\\quad\\forall n\\ge1:\\ P(n)"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Squaring an exponential trace",
+    "topic": "Exponents",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0,\\quad t>1",
+    "setup": "a_0=t+t^{-1},\\qquad a_{r+1}=a_r^2-2\\quad(r\\ge0)",
+    "statement": "a_n=t^{2^n}+t^{-2^n}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "a_0=t+t^{-1}=t^{2^0}+t^{-2^0}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad a_k=t^{2^k}+t^{-2^k}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\na_{k+1}&=a_k^2-2=(t^{2^k}+t^{-2^k})^2-2\\\\\n&=t^{2\\cdot2^k}+2t^{2^k}t^{-2^k}+t^{-2\\cdot2^k}-2\\\\\n&=t^{2^{k+1}}+2+t^{-2^{k+1}}-2\\\\\n&=t^{2^{k+1}}+t^{-2^{k+1}}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Iterating a rational map",
+    "topic": "Recurrences",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "a_0=0,\\qquad a_{r+1}=\\frac{3a_r+2}{a_r+2}\\quad(r\\ge0)",
+    "statement": "a_n=\\frac{2(4^n-1)}{4^n+2},\\qquad0\\le a_n<2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "a_0=0=\\frac{2(4^0-1)}{4^0+2},\\qquad0\\le0<2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\quad u=4^k\\ge1,\\qquad a_k=\\frac{2(u-1)}{u+2},\\quad0\\le a_k<2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\na_k+2&\\ge2>0,\\\\\na_{k+1}&=\\frac{6(u-1)/(u+2)+2}{2(u-1)/(u+2)+2}\\\\\n&=\\frac{6u-6+2u+4}{2u-2+2u+4}\\\\\n&=\\frac{8u-2}{4u+2}=\\frac{2(4u-1)}{4u+2}\\\\\n&=\\frac{2(4^{k+1}-1)}{4^{k+1}+2},\\\\\na_{k+1}&\\ge0,\\qquad\n2-a_{k+1}=\\frac{2(4u+2)-2(4u-1)}{4u+2}=\\frac6{4u+2}>0.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "title": "A nested radical in closed form",
+    "topic": "Recurrences",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "a_0=0,\\qquad a_{r+1}=\\sqrt{2+a_r}\\quad(r\\ge0)",
+    "statement": "a_n=2\\cos\\left(\\frac\\pi{2^{n+1}}\\right),\\qquad0\\le a_n<2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "a_0=0=2\\cos(\\pi/2),\\qquad0\\le0<2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad a_k=2\\cos(\\pi/2^{k+1}),\\quad0\\le a_k<2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n0&<\\frac\\pi{2^{k+2}}\\le\\frac\\pi4,\\\\\na_{k+1}&=\\sqrt{2+2\\cos(\\pi/2^{k+1})}\\\\\n&=\\sqrt{4\\cos^2(\\pi/2^{k+2})}\\\\\n&=2\\left|\\cos(\\pi/2^{k+2})\\right|\\\\\n&=2\\cos(\\pi/2^{k+2}),\\\\\n0&<a_{k+1}<2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "title": "A finite continued fraction",
+    "topic": "Fractions",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0),\\qquad c_1=1,\\quad c_{r+1}=1+\\frac1{c_r}\\quad(r\\ge1)",
+    "statement": "F_n,F_{n+1},c_n>0,\\qquad c_n=\\frac{F_{n+1}}{F_n}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "F_1=F_2=c_1=1>0,\\qquad c_1=1=\\frac{F_2}{F_1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad F_k,F_{k+1},c_k>0,\\quad c_k=\\frac{F_{k+1}}{F_k}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nF_{k+2}&=F_{k+1}+F_k>0,\\\\\nc_{k+1}&=1+\\frac1{c_k}=1+\\frac{F_k}{F_{k+1}}\\\\\n&=\\frac{F_{k+1}+F_k}{F_{k+1}}=\\frac{F_{k+2}}{F_{k+1}}>0.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "title": "A polynomial invariant",
+    "topic": "Recurrences",
+    "difficulty": "Advanced",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad x\\in\\mathbb R",
+    "setup": "T_0(x)=1,\\quad T_1(x)=x,\\quad T_{r+1}(x)=2xT_r(x)-T_{r-1}(x)\\quad(r\\ge1)",
+    "statement": "T_n(x)^2-T_{n-1}(x)T_{n+1}(x)=1-x^2",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "T_1^2-T_0T_2=x^2-1(2x^2-1)=1-x^2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\quad T_j=T_j(x),\\qquad T_k^2-T_{k-1}T_{k+1}=1-x^2"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nT_{k+1}^2-T_kT_{k+2}\n&=T_{k+1}^2-T_k(2xT_{k+1}-T_k)\\\\\n&=T_k^2+T_{k+1}(T_{k+1}-2xT_k)\\\\\n&=T_k^2-T_{k+1}T_{k-1}\\\\\n&=1-x^2.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "title": "A diagonal binomial sum",
+    "topic": "Binomial identities",
+    "difficulty": "Intermediate",
+    "domain": "n\\ge0,\\ n\\in\\mathbb Z,\\quad r\\in\\mathbb Z_{\\ge0}",
+    "setup": "",
+    "statement": "\\sum_{j=0}^{n}\\binom{r+j}{r}=\\binom{r+n+1}{r+1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\binom rr=1=\\binom{r+1}{r+1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad\\sum_{j=0}^{k}\\binom{r+j}{r}=\\binom{r+k+1}{r+1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=0}^{k+1}\\binom{r+j}{r}\n&=\\binom{r+k+1}{r+1}+\\binom{r+k+1}{r}\\\\\n&=\\frac{(r+k+1)!}{(r+1)!k!}+\\frac{(r+k+1)!}{r!(k+1)!}\\\\\n&=\\frac{(r+k+1)![(k+1)+(r+1)]}{(r+1)!(k+1)!}\\\\\n&=\\frac{(r+k+2)!}{(r+1)!(k+1)!}=\\binom{r+k+2}{r+1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Three binomial moments",
+    "topic": "Binomial identities",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge1",
+    "setup": "\\binom ab=0\\quad(a\\in\\mathbb Z_{\\ge0},\\ b\\in\\mathbb Z,\\ b<0\\ \\lor\\ b>a)",
+    "statement": "\\sum_{j=0}^{n}\\binom nj=2^n,\\quad\\sum_{j=0}^{n}j\\binom nj=n2^{n-1},\\quad\\sum_{j=0}^{n}j^2\\binom nj=n(n+1)2^{n-2}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\sum_{j=0}^1\\binom1j=2=2^1,\\quad\\sum_{j=0}^1j\\binom1j=1=1\\cdot2^0,\\quad\\sum_{j=0}^1j^2\\binom1j=1=1\\cdot2\\cdot2^{-1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\quad A_k=\\sum_{j=0}^k\\binom kj=2^k,\\quad B_k=\\sum_{j=0}^kj\\binom kj=k2^{k-1},\\quad C_k=\\sum_{j=0}^kj^2\\binom kj=k(k+1)2^{k-2}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\binom{k+1}{j}&=\\binom kj+\\binom{k}{j-1},\\\\\nA_{k+1}&=\\sum_{j=0}^k\\binom kj+\\sum_{i=0}^k\\binom ki=2A_k=2^{k+1},\\\\\nB_{k+1}&=\\sum_{j=0}^kj\\binom kj+\\sum_{i=0}^k(i+1)\\binom ki\\\\\n&=2B_k+A_k=2k2^{k-1}+2^k=(k+1)2^k,\\\\\nC_{k+1}&=\\sum_{j=0}^kj^2\\binom kj+\\sum_{i=0}^k(i+1)^2\\binom ki\\\\\n&=2C_k+2B_k+A_k\\\\\n&=2k(k+1)2^{k-2}+2k2^{k-1}+2^k\\\\\n&=[k(k+1)+2k+2]2^{k-1}\\\\\n&=(k+1)(k+2)2^{k-1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Convolving two binomial rows",
+    "topic": "Binomial identities",
+    "difficulty": "Advanced",
+    "domain": "n,m\\in\\mathbb Z_{\\ge0},\\quad r\\in\\mathbb Z",
+    "setup": "\\binom ab=0\\quad(a\\in\\mathbb Z_{\\ge0},\\ b\\in\\mathbb Z,\\ b<0\\ \\lor\\ b>a)",
+    "statement": "\\sum_{j=0}^{n}\\binom nj\\binom m{r-j}=\\binom{n+m}{r}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\forall r\\in\\mathbb Z:\\quad\\sum_{j=0}^{0}\\binom0j\\binom m{r-j}=\\binom mr=\\binom{0+m}{r}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\quad\\forall r\\in\\mathbb Z:\\quad\\sum_{j=0}^{k}\\binom kj\\binom m{r-j}=\\binom{k+m}{r}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=0}^{k+1}\\binom{k+1}j\\binom m{r-j}\n&=\\sum_{j=0}^{k+1}\\left[\\binom kj+\\binom k{j-1}\\right]\\binom m{r-j}\\\\\n&=\\sum_{j=0}^{k}\\binom kj\\binom m{r-j}\n+\\sum_{i=0}^{k}\\binom ki\\binom m{r-1-i}\\\\\n&=\\binom{k+m}{r}+\\binom{k+m}{r-1}\\\\\n&=\\binom{k+m+1}{r}\\qquad(r\\in\\mathbb Z).\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Stopping an alternating binomial row",
+    "topic": "Binomial identities",
+    "difficulty": "Intermediate",
+    "domain": "m\\in\\mathbb Z_{\\ge1},\\quad n\\in\\mathbb Z,\\quad0\\le n\\le m",
+    "setup": "\\binom ab=0\\quad(a\\in\\mathbb Z_{\\ge0},\\ b\\in\\mathbb Z,\\ b<0\\ \\lor\\ b>a)",
+    "statement": "\\sum_{j=0}^{n}(-1)^j\\binom mj=(-1)^n\\binom{m-1}{n}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\binom m0=1=(-1)^0\\binom{m-1}{0}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "0\\le k<m,\\qquad\\sum_{j=0}^{k}(-1)^j\\binom mj=(-1)^k\\binom{m-1}{k}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\sum_{j=0}^{k+1}(-1)^j\\binom mj\n&=(-1)^k\\binom{m-1}{k}+(-1)^{k+1}\\binom m{k+1}\\\\\n&=(-1)^{k+1}\\left[\\binom m{k+1}-\\binom{m-1}{k}\\right]\\\\\n&=(-1)^{k+1}\\left[\\binom{m-1}{k+1}+\\binom{m-1}{k}-\\binom{m-1}{k}\\right]\\\\\n&=(-1)^{k+1}\\binom{m-1}{k+1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ 0\\le k<m:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ 0\\le n\\le m:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "title": "A shallow diagonal produces a recurrence",
+    "topic": "Binomial identities",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0),\\qquad S_n=\\sum_{j=0}^{\\lfloor n/2\\rfloor}\\binom{n-j}{j}",
+    "statement": "S_n=F_{n+1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "S_0=\\binom00=1=F_1,\\qquad S_1=\\binom10=1=F_2"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad S_{k-1}=F_k,\\quad S_k=F_{k+1},\\qquad\\binom ab=0\\ (b<0\\ \\lor\\ b>a)"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nS_{k+1}&=\\sum_{j=0}^{\\lfloor(k+1)/2\\rfloor}\\binom{k+1-j}{j}\\\\\n&=\\sum_{j=0}^{\\lfloor(k+1)/2\\rfloor}\\binom{k-j}{j}\n+\\sum_{j=1}^{\\lfloor(k+1)/2\\rfloor}\\binom{k-j}{j-1}\\\\\n&=\\sum_{j=0}^{\\lfloor k/2\\rfloor}\\binom{k-j}{j}\n+\\sum_{i=0}^{\\lfloor(k-1)/2\\rfloor}\\binom{k-1-i}{i}\\\\\n&=S_k+S_{k-1}=F_{k+1}+F_k=F_{k+2}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\quad P(1)\\quad\\forall k\\ge1:\\ [P(k-1)\\land P(k)]\\Rightarrow P(k+1)}{\\forall n\\ge0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "title": "A parameterized reciprocal transform",
+    "topic": "Binomial identities",
+    "difficulty": "Expert",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0,\\quad x>0",
+    "setup": "\\binom ab=0\\quad(a\\in\\mathbb Z_{\\ge0},\\ b\\in\\mathbb Z,\\ b<0\\ \\lor\\ b>a)",
+    "statement": "\\sum_{j=0}^{n}\\frac{(-1)^j\\binom nj}{x+j}=\\frac{n!}{\\prod_{r=0}^{n}(x+r)}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\forall x>0:\\quad\\frac{(-1)^0\\binom00}{x}=\\frac1x=\\frac{0!}{\\prod_{r=0}^0(x+r)}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\quad\\forall x>0:\\quad S_k(x):=\\sum_{j=0}^{k}\\frac{(-1)^j\\binom kj}{x+j}=\\frac{k!}{\\prod_{r=0}^{k}(x+r)}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nS_{k+1}(x)&=\\sum_{j=0}^{k+1}\\frac{(-1)^j[\\binom kj+\\binom k{j-1}]}{x+j}\\\\\n&=\\sum_{j=0}^{k}\\frac{(-1)^j\\binom kj}{x+j}\n-\\sum_{i=0}^{k}\\frac{(-1)^i\\binom ki}{x+1+i}\\\\\n&=S_k(x)-S_k(x+1)\\\\\n&=\\frac{k!}{x(x+1)\\cdots(x+k)}\n-\\frac{k!}{(x+1)(x+2)\\cdots(x+k+1)}\\\\\n&=\\frac{k![(x+k+1)-x]}{x(x+1)\\cdots(x+k+1)}\\\\\n&=\\frac{(k+1)!}{\\prod_{r=0}^{k+1}(x+r)}\\qquad(x>0).\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Annihilating every lower-degree term",
+    "topic": "Binomial identities",
+    "difficulty": "Expert",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0,\\quad c_0,\\ldots,c_n\\in\\mathbb R",
+    "setup": "p(t)=\\sum_{r=0}^{n}c_rt^r,\\qquad\\binom ab=0\\quad(b<0\\ \\lor\\ b>a)",
+    "statement": "\\sum_{j=0}^{n}(-1)^{n-j}\\binom njp(j)=n!c_n",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "n=0,\\quad p(t)=c_0,\\qquad\\sum_{j=0}^{0}(-1)^{0-j}\\binom0jp(j)=p(0)=c_0=0!c_0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\quad\\forall q(t)=\\sum_{r=0}^{k}b_rt^r:\\quad\\sum_{j=0}^{k}(-1)^{k-j}\\binom kjq(j)=k!b_k"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\np(t)&=\\sum_{r=0}^{k+1}c_rt^r,\\qquad q(t)=p(t+1)-p(t),\\\\\nq(t)&=\\sum_{r=1}^{k+1}c_r\\left[\\sum_{s=0}^{r}\\binom rs t^s-t^r\\right]\\\\\n&=\\sum_{r=1}^{k+1}c_r\\sum_{s=0}^{r-1}\\binom rs t^s,\\\\\n\\deg q&\\le k,\\qquad [t^k]q(t)=\\binom{k+1}{k}c_{k+1}=(k+1)c_{k+1},\\\\\n\\sum_{j=0}^{k+1}(-1)^{k+1-j}\\binom{k+1}jp(j)\n&=-\\sum_{j=0}^{k}(-1)^{k-j}\\binom kjp(j)\n+\\sum_{i=0}^{k}(-1)^{k-i}\\binom kip(i+1)\\\\\n&=\\sum_{j=0}^{k}(-1)^{k-j}\\binom kj[p(j+1)-p(j)]\\\\\n&=\\sum_{j=0}^{k}(-1)^{k-j}\\binom kjq(j)\\\\\n&=k!(k+1)c_{k+1}=(k+1)!c_{k+1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "title": "A tridiagonal determinant",
+    "topic": "Matrices",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "F_0=0,\\quad F_1=1,\\quad F_{r+2}=F_{r+1}+F_r\\quad(r\\ge0),\\qquad D_0=1,\\quad D_n=\\det(t_{ij})_{i,j=1}^{n},\\quad t_{ij}=\\begin{cases}3&i=j,\\\\1&|i-j|=1,\\\\0&|i-j|>1.\\end{cases}",
+    "statement": "D_n=F_{2n+2}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "D_0=1=F_2,\\qquad D_1=\\det(3)=3=F_4"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad D_{k-1}=F_{2k},\\quad D_k=F_{2k+2}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nD_{k+1}&=3D_k-1\\cdot(1\\cdot D_{k-1})\\\\\n&=3F_{2k+2}-F_{2k}\\\\\n&=2F_{2k+2}+(F_{2k+2}-F_{2k})\\\\\n&=2F_{2k+2}+F_{2k+1}\\\\\n&=F_{2k+2}+(F_{2k+2}+F_{2k+1})\\\\\n&=F_{2k+2}+F_{2k+3}=F_{2k+4}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\quad P(1)\\quad\\forall k\\ge1:\\ [P(k-1)\\land P(k)]\\Rightarrow P(k+1)}{\\forall n\\ge0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "title": "A rapidly growing Egyptian fraction",
+    "topic": "Fractions",
+    "difficulty": "Advanced",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0",
+    "setup": "s_0=2,\\qquad s_{r+1}=s_r^2-s_r+1\\quad(r\\ge0)",
+    "statement": "s_n\\ge2,\\qquad\\prod_{j=0}^{n}s_j=s_{n+1}-1,\\qquad\\sum_{j=0}^{n}\\frac1{s_j}=1-\\frac1{s_{n+1}-1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "s_0=2,\\quad s_1=2^2-2+1=3,\\quad\\prod_{j=0}^0s_j=2=s_1-1,\\quad\\frac1{s_0}=\\frac12=1-\\frac1{s_1-1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\quad s_k\\ge2,\\quad\\prod_{j=0}^{k}s_j=s_{k+1}-1,\\quad\\sum_{j=0}^{k}\\frac1{s_j}=1-\\frac1{s_{k+1}-1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\ns_{k+1}&=s_k(s_k-1)+1\\ge2\\cdot1+1=3,\\\\\n\\prod_{j=0}^{k+1}s_j&=(s_{k+1}-1)s_{k+1}\\\\\n&=s_{k+1}^2-s_{k+1}=s_{k+2}-1,\\\\\n\\sum_{j=0}^{k+1}\\frac1{s_j}\n&=1-\\frac1{s_{k+1}-1}+\\frac1{s_{k+1}}\\\\\n&=1+\\frac{-s_{k+1}+(s_{k+1}-1)}{s_{k+1}(s_{k+1}-1)}\\\\\n&=1-\\frac1{s_{k+1}^2-s_{k+1}}\\\\\n&=1-\\frac1{s_{k+2}-1}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "title": "The Vandermonde determinant",
+    "topic": "Matrices",
+    "difficulty": "Expert",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad x_1,\\ldots,x_n\\in\\mathbb R,\\quad i\\ne j\\Rightarrow x_i\\ne x_j",
+    "setup": "V_n(x_1,\\ldots,x_n)=\\det\\bigl(x_i^{\\,j-1}\\bigr)_{i,j=1}^{n},\\qquad\\prod_{\\varnothing}=1",
+    "statement": "V_n(x_1,\\ldots,x_n)=\\prod_{1\\le i<j\\le n}(x_j-x_i)",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "V_1(x_1)=\\det(1)=1=\\prod_{1\\le i<j\\le1}(x_j-x_i)"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\quad\\forall(x_1,\\ldots,x_k)\\in\\mathbb R^k,\\ \\bigwedge_{i<j}(x_i\\ne x_j):\\quad V_k=\\prod_{1\\le i<j\\le k}(x_j-x_i)\\ne0"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\np(t)&=V_{k+1}(x_1,\\ldots,x_k,t),\\qquad\\deg p\\le k,\\\\\nt=x_r&\\ \\Longrightarrow\\ R_{k+1}=R_r\\ \\Longrightarrow\\ p(x_r)=0\\quad(1\\le r\\le k),\\\\\np(t)&=c\\prod_{i=1}^{k}(t-x_i),\\\\\nc=[t^k]p(t)&=(-1)^{(k+1)+(k+1)}V_k(x_1,\\ldots,x_k)\\\\\n&=V_k(x_1,\\ldots,x_k),\\\\\nV_{k+1}(x_1,\\ldots,x_{k+1})\n&=p(x_{k+1})=V_k(x_1,\\ldots,x_k)\\prod_{i=1}^{k}(x_{k+1}-x_i)\\\\\n&=\\left[\\prod_{1\\le i<j\\le k}(x_j-x_i)\\right]\\prod_{i=1}^{k}(x_{k+1}-x_i)\\\\\n&=\\prod_{1\\le i<j\\le k+1}(x_j-x_i).\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "title": "A determinant with varying coefficients",
+    "topic": "Recurrences",
+    "difficulty": "Intermediate",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0,\\quad a_0,a_1,\\ldots\\in\\mathbb R",
+    "setup": "p_{-1}=1,\\ p_0=a_0,\\ q_{-1}=0,\\ q_0=1,\\qquad\\begin{cases}p_r=a_rp_{r-1}+p_{r-2},\\\\q_r=a_rq_{r-1}+q_{r-2}\\end{cases}\\ (r\\ge1)",
+    "statement": "p_nq_{n-1}-p_{n-1}q_n=(-1)^{n+1}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "p_0q_{-1}-p_{-1}q_0=a_0\\cdot0-1\\cdot1=-1=(-1)^{0+1}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad p_kq_{k-1}-p_{k-1}q_k=(-1)^{k+1}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\np_{k+1}q_k-p_kq_{k+1}\n&=(a_{k+1}p_k+p_{k-1})q_k-p_k(a_{k+1}q_k+q_{k-1})\\\\\n&=a_{k+1}p_kq_k+p_{k-1}q_k-a_{k+1}p_kq_k-p_kq_{k-1}\\\\\n&=p_{k-1}q_k-p_kq_{k-1}\\\\\n&=-(-1)^{k+1}=(-1)^{k+2}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Repeated differentiation with a polynomial factor",
+    "topic": "Operators",
+    "difficulty": "Expert",
+    "domain": "n,m\\in\\mathbb Z_{\\ge0},\\quad x\\in\\mathbb R,\\quad f\\in C^\\infty(\\mathbb R)",
+    "setup": "D=\\frac{d}{dx},\\qquad(m)_0=1,\\quad(m)_j=\\frac{m!}{(m-j)!}\\ (0\\le j\\le m),\\qquad\\binom ab=0\\ (b<0\\ \\lor\\ b>a)",
+    "statement": "D^n(x^mf(x))=\\sum_{j=0}^{\\min(n,m)}\\binom nj(m)_j x^{m-j}f^{(n-j)}(x)",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "D^0(x^mf)=x^mf=\\binom00(m)_0x^mf^{(0)}"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad D^k(x^mf)=\\sum_{j=0}^{\\min(k,m)}\\binom kj(m)_j x^{m-j}f^{(k-j)}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nD^{k+1}(x^mf)\n&=\\sum_{j=0}^{\\min(k,m)}\\binom kj(m)_j x^{m-j}f^{(k+1-j)}\\\\\n&\\quad+\\sum_{j=0}^{\\min(k,m-1)}\\binom kj(m)_j(m-j)x^{m-j-1}f^{(k-j)},\\\\\n(m)_j(m-j)&=\\frac{m!}{(m-j)!}(m-j)=\\frac{m!}{(m-j-1)!}=(m)_{j+1}\\quad(0\\le j<m),\\\\\nD^{k+1}(x^mf)\n&=\\sum_{j=0}^{\\min(k,m)}\\binom kj(m)_j x^{m-j}f^{(k+1-j)}\\\\\n&\\quad+\\sum_{j=1}^{\\min(k+1,m)}\\binom k{j-1}(m)_j x^{m-j}f^{(k+1-j)}\\\\\n&=\\sum_{j=0}^{\\min(k+1,m)}\\left[\\binom kj+\\binom k{j-1}\\right](m)_j x^{m-j}f^{(k+1-j)}\\\\\n&=\\sum_{j=0}^{\\min(k+1,m)}\\binom{k+1}j(m)_j x^{m-j}f^{(k+1-j)}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Telescoping without commutativity",
+    "topic": "Matrices",
+    "difficulty": "Intermediate",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad A,B\\in\\mathbb R^{d\\times d},\\quad d\\ge1",
+    "setup": "A^0=B^0=I_d",
+    "statement": "A^n-B^n=\\sum_{j=0}^{n-1}A^{n-1-j}(A-B)B^j",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "A^1-B^1=A-B=A^0(A-B)B^0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge1,\\qquad A^k-B^k=\\sum_{j=0}^{k-1}A^{k-1-j}(A-B)B^j"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\nA^{k+1}-B^{k+1}\n&=A^{k+1}-AB^k+AB^k-B^{k+1}\\\\\n&=A(A^k-B^k)+(A-B)B^k\\\\\n&=A\\sum_{j=0}^{k-1}A^{k-1-j}(A-B)B^j+(A-B)B^k\\\\\n&=\\sum_{j=0}^{k-1}A^{k-j}(A-B)B^j+A^0(A-B)B^k\\\\\n&=\\sum_{j=0}^{k}A^{k-j}(A-B)B^j.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "title": "A finite Gaussian binomial theorem",
+    "topic": "Products",
+    "difficulty": "Expert",
+    "domain": "n\\in\\mathbb Z,\\ n\\ge0,\\quad q>0,\\ q\\ne1,\\quad t\\in\\mathbb R",
+    "setup": "\\begin{gathered}\n(q;q)_0=1,\\qquad(q;q)_a=\\prod_{j=1}^{a}(1-q^j),\\\\\n\\genfrac{[}{]}{0pt}{}{a}{r}_q=\\begin{cases}\\dfrac{(q;q)_a}{(q;q)_r(q;q)_{a-r}}&0\\le r\\le a,\\\\0&r<0\\ \\lor\\ r>a,\\end{cases}\n\\quad a\\in\\mathbb Z_{\\ge0},\\ r\\in\\mathbb Z.\n\\end{gathered}",
+    "statement": "\\prod_{j=0}^{n-1}(1+tq^j)=\\sum_{r=0}^{n}q^{r(r-1)/2}\\genfrac{[}{]}{0pt}{}{n}{r}_q t^r",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\prod_{j=0}^{-1}(1+tq^j)=1=q^0\\genfrac{[}{]}{0pt}{}{0}{0}_q t^0"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "k\\ge0,\\qquad\\prod_{j=0}^{k-1}(1+tq^j)=\\sum_{r=0}^{k}q^{r(r-1)/2}\\genfrac{[}{]}{0pt}{}{k}{r}_q t^r"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\n\\genfrac{[}{]}{0pt}{}{k}{r}_q+q^{k+1-r}\\genfrac{[}{]}{0pt}{}{k}{r-1}_q\n&=\\frac{(q;q)_k[(1-q^{k+1-r})+q^{k+1-r}(1-q^r)]}{(q;q)_r(q;q)_{k+1-r}}\\\\\n&=\\frac{(q;q)_k[1-q^{k+1-r}+q^{k+1-r}-q^{k+1}]}{(q;q)_r(q;q)_{k+1-r}}\\\\\n&=\\frac{(q;q)_{k+1}}{(q;q)_r(q;q)_{k+1-r}}=\\genfrac{[}{]}{0pt}{}{k+1}{r}_q\\quad(1\\le r\\le k),\\\\\n\\genfrac{[}{]}{0pt}{}{k}{0}_q+q^{k+1}\\genfrac{[}{]}{0pt}{}{k}{-1}_q&=1+0=1=\\genfrac{[}{]}{0pt}{}{k+1}{0}_q,\\\\\n\\genfrac{[}{]}{0pt}{}{k}{k+1}_q+q^0\\genfrac{[}{]}{0pt}{}{k}{k}_q&=0+1=1=\\genfrac{[}{]}{0pt}{}{k+1}{k+1}_q,\\\\\nk+\\frac{(r-1)(r-2)}2-\\frac{r(r-1)}2&=k+1-r,\\\\\n\\prod_{j=0}^{k}(1+tq^j)\n&=(1+tq^k)\\sum_{r=0}^{k}q^{r(r-1)/2}\\genfrac{[}{]}{0pt}{}{k}{r}_qt^r\\\\\n&=\\sum_{r=0}^{k+1}q^{r(r-1)/2}\\left[\\genfrac{[}{]}{0pt}{}{k}{r}_q+q^{k+1-r}\\genfrac{[}{]}{0pt}{}{k}{r-1}_q\\right]t^r\\\\\n&=\\sum_{r=0}^{k+1}q^{r(r-1)/2}\\genfrac{[}{]}{0pt}{}{k+1}{r}_qt^r.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(0)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 0:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 0:\\ P(n)}"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "title": "A partial-fraction identity at arbitrary nodes",
+    "topic": "Fractions",
+    "difficulty": "Expert",
+    "domain": "n\\ge1,\\ n\\in\\mathbb Z,\\quad x_1,\\ldots,x_n\\in\\mathbb R,\\quad i\\ne j\\Rightarrow x_i\\ne x_j,\\quad z\\in\\mathbb R\\setminus\\{x_1,\\ldots,x_n\\}",
+    "setup": "\\prod_{\\varnothing}=1",
+    "statement": "\\frac1{\\prod_{i=1}^{n}(z-x_i)}=\\sum_{j=1}^{n}\\frac1{(z-x_j)\\prod_{\\substack{1\\le i\\le n\\\\i\\ne j}}(x_j-x_i)}",
+    "stages": [
+      {
+        "label": "Base Case",
+        "math": "\\frac1{z-x_1}=\\frac1{(z-x_1)\\prod_{\\varnothing}}\\qquad(z\\ne x_1)"
+      },
+      {
+        "label": "Inductive Hypothesis",
+        "math": "\\begin{gathered}\nk\\ge1,\\quad \\forall(x_1,\\ldots,x_k)\\in\\mathbb R^k,\\quad \\bigwedge_{i<j}(x_i\\ne x_j),\\\\\nw_j=\\frac1{\\prod_{\\substack{1\\le i\\le k\\\\i\\ne j}}(x_j-x_i)},\\qquad\n\\forall z\\notin\\{x_1,\\ldots,x_k\\}:\\quad\\frac1{\\prod_{i=1}^{k}(z-x_i)}=\\sum_{j=1}^{k}\\frac{w_j}{z-x_j}.\n\\end{gathered}"
+      },
+      {
+        "label": "Inductive Step",
+        "math": "\\begin{aligned}\ny&=x_{k+1}\\notin\\{x_1,\\ldots,x_k\\},\\qquad z\\notin\\{x_1,\\ldots,x_k,y\\},\\\\\n\\frac1{(z-x_j)(z-y)}\n&=\\frac1{x_j-y}\\left(\\frac1{z-x_j}-\\frac1{z-y}\\right),\\\\\n\\frac1{\\prod_{i=1}^{k+1}(z-x_i)}\n&=\\frac1{z-y}\\sum_{j=1}^{k}\\frac{w_j}{z-x_j}\\\\\n&=\\sum_{j=1}^{k}\\frac{w_j}{(x_j-y)(z-x_j)}\n+\\frac1{z-y}\\sum_{j=1}^{k}\\frac{w_j}{y-x_j}\\\\\n&=\\sum_{j=1}^{k}\\frac1{(z-x_j)\\prod_{\\substack{1\\le i\\le k+1\\\\i\\ne j}}(x_j-x_i)}\n+\\frac1{(z-y)\\prod_{i=1}^{k}(y-x_i)}\\\\\n&=\\sum_{j=1}^{k+1}\\frac1{(z-x_j)\\prod_{\\substack{1\\le i\\le k+1\\\\i\\ne j}}(x_j-x_i)}.\n\\end{aligned}"
+      },
+      {
+        "label": "Conclusion",
+        "math": "\\frac{P(1)\\qquad \\forall k\\in\\mathbb Z,\\ k\\ge 1:\\ P(k)\\Rightarrow P(k+1)}{\\forall n\\in\\mathbb Z,\\ n\\ge 1:\\ P(n)}"
+      }
+    ]
+  }
+]
