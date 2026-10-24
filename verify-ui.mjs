@@ -5,7 +5,7 @@ import {JSDOM,VirtualConsole} from 'jsdom';
 const html=fs.readFileSync('dist/index.html','utf8');
 const script=fs.readFileSync('dist/app.js','utf8');
 const errors=[];
-function boot(saved) {
+function boot(saved, notes={}) {
   const vc=new VirtualConsole();
   vc.on('jsdomError',e=>errors.push(e.message));
   const dom=new JSDOM(html,{url:'https://test.local/',runScripts:'outside-only',virtualConsole:vc});
@@ -14,6 +14,7 @@ function boot(saved) {
   w.matchMedia=()=>({matches:true});
   w.HTMLElement.prototype.scrollIntoView=function(){this.dataset.scrolled='true'};
   if(saved!==undefined)w.localStorage.setItem('induction-atelier-progress-v1',saved);
+  for(const [id,value] of Object.entries(notes))w.localStorage.setItem(`induction-atelier-notes-v1-${id}`,value);
   w.eval(script);
   return dom;
 }
@@ -21,7 +22,9 @@ let dom=boot(), w=dom.window, d=w.document;
 const $=s=>d.querySelector(s);
 const count=s=>d.querySelectorAll(s).length;
 const change=(selector,value)=>{const el=$(selector);el.value=value;el.dispatchEvent(new w.Event(el.type==='search'?'input':'change',{bubbles:true}))};
+const writeNote=(id,value)=>{const el=$(`[data-notes="${id}"]`);el.value=value;el.dispatchEvent(new w.Event('input',{bubbles:true}))};
 assert.equal(count('article.problem-card'),50);
+assert.equal(count('textarea[data-notes]'),50);
 assert.equal(count('.solution[hidden]'),50);
 assert.equal(count('.stage'),200);
 assert.equal(count('.katex-error'),0);
@@ -47,17 +50,30 @@ change('#search','not a problem');assert.equal(count('article:not([hidden])'),0)
 $('#clear-filters').click();assert.equal(count('article:not([hidden])'),50);
 $('#next-problem').click();assert.equal($('#problem-2').dataset.scrolled,'true');assert.equal($('#solution-2').hidden,true);
 change('#difficulty','Foundation');$('[data-jump="49"]').click();assert.equal($('#problem-49').hidden,false);assert.equal($('#solution-49').hidden,true);
+const savedNotes={};
+for(let id=1;id<=50;id++) {
+  const note=`Problem ${id}\nUse P(k) ⇒ P(k + 1).\n<em>literal text</em> & "quotes"`;
+  writeNote(id,note);
+  savedNotes[id]=w.localStorage.getItem(`induction-atelier-notes-v1-${id}`);
+  assert.equal(savedNotes[id],note);
+}
 const saved=w.localStorage.getItem('induction-atelier-progress-v1');
 await w.document.fonts.ready;
-dom.window.close();dom=boot(saved);w=dom.window;d=w.document;
+dom.window.close();dom=boot(saved,savedNotes);w=dom.window;d=w.document;
 assert.equal($('#complete-count').textContent,'2');assert.equal(count('.solution[hidden]'),50);
+for(let id=1;id<=50;id++)assert.equal($(`[data-notes="${id}"]`).value,savedNotes[id]);
+writeNote(1,'');
+savedNotes[1]=w.localStorage.getItem('induction-atelier-notes-v1-1');
+assert.equal(savedNotes[1],'');
 assert.equal($('[data-complete="1"]').checked,true);
 assert.equal($('[data-complete="50"]').checked,true);
 $('[data-complete="1"]').click();
 const afterUnchecking=w.localStorage.getItem('induction-atelier-progress-v1');
 assert.deepEqual(JSON.parse(afterUnchecking),[50]);
 await w.document.fonts.ready;
-dom.window.close();dom=boot(afterUnchecking);w=dom.window;d=w.document;
+dom.window.close();dom=boot(afterUnchecking,savedNotes);w=dom.window;d=w.document;
+assert.equal($('[data-notes="1"]').value,'');
+assert.equal($('[data-notes="50"]').value,savedNotes[50]);
 assert.equal($('[data-complete="1"]').checked,false);
 assert.equal($('[data-complete="50"]').checked,true);
 assert.equal($('#complete-count').textContent,'1');
@@ -65,6 +81,20 @@ $('[data-complete="1"]').click();
 $('#reset-progress').click();assert.equal($('#reset-confirm').hidden,false);
 $('#cancel-reset').click();assert.equal($('#complete-count').textContent,'2');assert.equal($('#reset-confirm').hidden,true);
 $('#reset-progress').click();$('#confirm-reset').click();assert.equal($('#complete-count').textContent,'0');
+for(let id=1;id<=50;id++) {
+  assert.equal($(`[data-notes="${id}"]`).value,savedNotes[id]);
+  assert.equal(w.localStorage.getItem(`induction-atelier-notes-v1-${id}`),savedNotes[id]);
+}
+const originalSetItem=w.Storage.prototype.setItem;
+w.Storage.prototype.setItem=()=>{throw new w.DOMException('Storage is full','QuotaExceededError')};
+writeNote(2,'Keep this unsaved draft');
+assert.equal($('[data-notes="2"]').value,'Keep this unsaved draft');
+assert.equal($('#notes-status-2').classList.contains('save-failed'),true);
+assert.equal(w.localStorage.getItem('induction-atelier-notes-v1-2'),savedNotes[2]);
+w.Storage.prototype.setItem=originalSetItem;
+writeNote(2,'Now this draft is saved');
+assert.equal(w.localStorage.getItem('induction-atelier-notes-v1-2'),'Now this draft is saved');
+assert.equal($('#notes-status-2').classList.contains('save-failed'),false);
 for(const checkbox of d.querySelectorAll('[data-complete]'))checkbox.click();
 assert.equal($('#complete-count').textContent,'50');assert.equal($('#percent').textContent,'100%');assert.equal($('#next-problem').disabled,true);
 await w.document.fonts.ready;
@@ -74,6 +104,6 @@ $('[data-complete="1"]').click();assert.equal($('#complete-count').textContent,'
 assert.equal(errors.length,0,errors.join('\n'));
 await w.document.fonts.ready;
 dom.window.close();
-const report={status:'passed',cards:50,math_expressions:328,toggle_round_trips:50,proof_stages:200,checks:['hidden by default','all toggle buttons','hide all','completion tracker','checked and unchecked state saved across reloads','no saved solution visibility','combined filters','empty-state recovery','jump navigation','next incomplete','reset and cancel','100 percent completion','malformed storage recovery'],limitation:'These automated checks use jsdom, not a browser layout engine.'};
+const report={status:'passed',cards:50,note_fields:50,math_expressions:328,toggle_round_trips:50,proof_stages:200,checks:['hidden by default','all toggle buttons','hide all','completion tracker','checked and unchecked state saved across reloads','all 50 notes save independently and restore across reloads','multiline and special characters in notes','cleared notes stay empty after reload','reset progress preserves notes','failed note saves keep draft and recover on next edit','no saved solution visibility','combined filters','empty-state recovery','jump navigation','next incomplete','reset and cancel','100 percent completion','malformed storage recovery'],limitation:'These automated checks use jsdom, not a browser layout engine.'};
 fs.mkdirSync('../verification',{recursive:true});fs.writeFileSync('../verification/ui-report.json',JSON.stringify(report,null,2));
 console.log(JSON.stringify(report,null,2));

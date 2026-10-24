@@ -20,6 +20,11 @@ const cards = problems.map(p => {
     <h2 tabindex="-1">${p.title}</h2>
     ${math(p.domain, 'domain')}${math(p.setup, 'setup')}
     <div class="statement">${math(String.raw`P(n):\quad ${p.statement}`)}</div>
+    <div class="notes">
+      <label for="notes-${p.id}">Notes<span class="sr-only"> for problem ${p.id}</span></label>
+      <textarea id="notes-${p.id}" data-notes="${p.id}" rows="4" aria-describedby="notes-status-${p.id}" placeholder="Write your notes, ideas, or proof steps…"></textarea>
+      <p class="notes-status" id="notes-status-${p.id}" role="status">Saves automatically in this browser.</p>
+    </div>
     <div class="card-actions"><button class="solution-toggle" aria-expanded="false" aria-controls="solution-${p.id}" data-toggle="${p.id}"><span>Show Solution</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></button><label class="complete-label"><input type="checkbox" data-complete="${p.id}" aria-label="Mark problem ${p.id} complete"><span>Mark complete</span></label></div>
     <section class="solution" id="solution-${p.id}" aria-label="Solution to problem ${p.id}" hidden>${p.stages.map((s,i) => `<div class="stage"><h3><span class="stage-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span>${s.label}</h3>${math(s.math)}</div>`).join('')}</section>
   </article>`;

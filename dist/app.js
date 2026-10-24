@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const key = 'induction-atelier-progress-v1';
+  const notesKey = 'induction-atelier-notes-v1-';
   const cards = [...document.querySelectorAll('.problem-card')];
   const fields = ['search','difficulty','topic','status'].map(id=>document.getElementById(id));
   const completed = new Set();
@@ -12,6 +13,32 @@
     const saved = JSON.parse(localStorage.getItem(key) || '[]');
     if (Array.isArray(saved)) saved.forEach(id => {if (Number.isInteger(id) && id >= 1 && id <= 50) completed.add(id)});
   } catch { storageAvailable = false; }
+  function setNotesStatus(input, message, failed = false) {
+    const status = document.getElementById(`notes-status-${input.dataset.notes}`);
+    status.textContent = message;
+    status.classList.toggle('save-failed', failed);
+  }
+  document.querySelectorAll('[data-notes]').forEach(input => {
+    try {
+      const saved = localStorage.getItem(notesKey + input.dataset.notes);
+      if (saved !== null) {
+        input.value = saved;
+        setNotesStatus(input, 'Saved in this browser.');
+      }
+    } catch {
+      setNotesStatus(input, 'Could not load saved notes from this browser.', true);
+    }
+  });
+  document.addEventListener('input', event => {
+    const input = event.target.closest('[data-notes]');
+    if (!input) return;
+    try {
+      localStorage.setItem(notesKey + input.dataset.notes, input.value);
+      setNotesStatus(input, 'Saved in this browser.');
+    } catch {
+      setNotesStatus(input, 'Could not save. Keep this page open to keep your notes.', true);
+    }
+  });
   function announce(s) {document.getElementById('announcement').textContent=s}
   function save() {
     try { localStorage.setItem(key,JSON.stringify([...completed]));storageAvailable=true; }
