@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#101214">
+  <meta name="description" content="50 mathematical induction problems with step-by-step proofs and automatically saved checkboxes.">
+  <title>Mathematical induction — Practice checklist</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/katex.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#collection">Skip to problems</a>
+  <main class="layout">
+    <header class="page-header">
+      <p class="eyebrow">PRACTICE CHECKLIST / 50 PROBLEMS</p>
+      <h1>Mathematical induction</h1>
+      <p>Work through each proof, then check it off. Reveal a solution whenever you need it.</p>
+    </header>
+
+    <section class="progress-panel" aria-label="Your progress">
+      <div class="progress-heading">
+        <span><strong id="complete-count">0</strong> <span class="muted">/ 50 complete</span></span>
+        <span id="percent">0%</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Problems completed" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div id="progress-fill"></div></div>
+      <div class="progress-actions">
+        <p class="save-note" id="save-note">Progress is saved in this browser.</p>
+        <button id="next-problem">Continue practice <span aria-hidden="true">↗</span></button>
+        <button id="reset-progress" class="quiet">Reset progress</button>
+      </div>
+      <div id="reset-confirm" hidden>
+        <p>Clear all completed checkboxes?</p>
+        <button id="confirm-reset">Reset</button>
+        <button id="cancel-reset">Cancel</button>
+      </div>
+      <details class="index-disclosure">
+        <summary>Jump to a problem</summary>
+        <nav class="problem-index" aria-label="Problem navigation">{{index}}</nav>
+      </details>
+    </section>
+
+    <section id="collection" aria-label="Problem collection">
+      <div class="collection-heading"><h2>Problems</h2><button id="hide-solutions" class="quiet">Hide open solutions</button></div>
+      <div class="filters">
+        <label class="search-label"><span class="sr-only">Search problems</span><input id="search" type="search" placeholder="Search problems…"></label>
+        <label><span class="sr-only">Difficulty</span><select id="difficulty"><option value="">All difficulties</option>{{levels}}</select></label>
+        <label><span class="sr-only">Topic</span><select id="topic"><option value="">All topics</option>{{topics}}</select></label>
+        <label><span class="sr-only">Progress filter</span><select id="status"><option value="">All progress</option><option value="incomplete">To attempt</option><option value="complete">Completed</option></select></label>
+      </div>
+      <p id="results-count" class="results-row" aria-live="polite">Showing 50 of 50 problems</p>
+      <noscript><p class="empty-state">Enable JavaScript to reveal solutions and save progress.</p></noscript>
+      <div id="empty-state" class="empty-state" hidden><h3>No matching problems</h3><p>Try another topic or clear your filters.</p><button id="clear-filters">Clear filters</button></div>
+      <div id="problem-list">{{cards}}</div>
+    </section>
+    <footer><span>50 problems · Solutions start hidden.</span><a href="#">Back to top ↑</a></footer>
+  </main>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>
